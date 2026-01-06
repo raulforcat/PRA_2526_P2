@@ -22,10 +22,14 @@ class BSTreeDict: public Dict<V> {
             delete tree;
         }
 
+        int entries() override {
+            return tree->size();
+        }
+
         friend std::ostream& operator<<(std::ostream &out, const BSTreeDict<V> &bs){
-            out << "BSTreeDict (entries: " << bs.entries() << ", height: " << bs.height() << ")" << std::endl;
-            bs.tree->print_inorder(out);
-            return out;
+            //out << "BSTreeDict (entries: " << bs.tree->size() << " )" << std::endl;
+            //bs.tree->print_inorder(out, bs.tree->root);
+            return out << *(bs.tree);
         }
 
         void insert(std::string key, V value) override {
@@ -45,10 +49,6 @@ class BSTreeDict: public Dict<V> {
             V value = toRemove.value;
             tree->remove(tempEntry);
             return value;
-        }
-
-        int entries() override {
-            return tree->size();
         }
 
         V operator [](std::string key){
