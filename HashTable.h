@@ -87,13 +87,8 @@ class HashTable: public Dict<V> {
             << ")" << std::endl;
         
         for (int i = 0; i < th.max; i++) {
-            out << "Bucket " << i << " [" << th.table[i].size() << "]: ";
-            if (th.table[i].size() == 0) {
-                out << "empty";
-            } else {
-                out << th.table[i];
-            }
-            out << std::endl;
+            out << "Cubeta " << i << " [" << th.table[i].size() << "]: ";
+            out << th.table[i] << std::endl;
         }
         return out;
     }
